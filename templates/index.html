@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support CRM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Support CRM Dashboard</h1>
+    <form id="ticketForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="subject" placeholder="Subject" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">Create Ticket</button>
+    </form>
+
+    <hr>
+
+    <input type="text" id="searchInput" placeholder="Search by name or ID...">
+    <select id="statusFilter">
+        <option value="">All Statuses</option>
+        <option value="Open">Open</option>
+        <option value="Closed">Closed</option>
+    </select>
+
+    <table id="ticketTable" style="margin-top: 20px; width: 100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Subject</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="ticketBody">
+    </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
