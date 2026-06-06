@@ -5,13 +5,11 @@ from routes import bp
 from datetime import datetime
  
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.abspath(os.path.dirname(__file__)), 'crm.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crm.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
  
 db.init_app(app)
  
-# ✅ FIX: Remove url_prefix here because routes.py already has /api/tickets
-#    If you kept url_prefix='/api', the URL would become /api/api/tickets
 app.register_blueprint(bp)
  
 @app.route('/')
